@@ -22,6 +22,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+//插入算法1
 void insertSort(int *a,int n){
 
     int i,j,k;
@@ -46,13 +47,16 @@ void insertSort(int *a,int n){
     }
 }
 
+//插入算法2
 void insertSort02(int *a,int n){
 
     int i,j;
     for (i = 1; i < n; i++) {
+        //当后者比前者小时，才进行插入，否则不做任何操作，直接跳出循环，因为已经是一个有序序列了；
         if (a[i - 1] > a[i]) {
 
             int temp = a[i];
+            //寻找正确的插入位置；
             for (j = i - 1; j >= 0 && a[j] > temp; j--) {
                 a[j + 1] = a[j];
             }

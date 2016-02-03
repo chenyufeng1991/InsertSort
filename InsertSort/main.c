@@ -9,11 +9,12 @@
 #include <stdio.h>
 
 void insertSort(int *a,int n);
+void insertSort02(int *a,int n);
 
 int main(int argc, const char * argv[]) {
 
     int a[] = {4,7,0,1,8,3};
-    insertSort(a,6);
+    insertSort02(a,6);
     for (int i = 0; i < 6; i++) {
         printf("%d ",a[i]);
     }
@@ -40,3 +41,29 @@ void insertSort(int *a,int n){
         }
     }
 }
+
+void insertSort02(int *a,int n){
+
+    int i,j;
+    for (i = 1; i < n; i++) {
+        if (a[i - 1] > a[i]) {
+
+            int temp = a[i];
+            for (j = i - 1; j >= 0 && a[j] > temp; j--) {
+                a[j + 1] = a[j];
+            }
+            a[j + 1] = temp;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -8,8 +8,35 @@
 
 #include <stdio.h>
 
+void insertSort(int *a,int n);
+
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+
+    int a[] = {4,7,0,1,8,3};
+    insertSort(a,6);
+    for (int i = 0; i < 6; i++) {
+        printf("%d ",a[i]);
+    }
+
     return 0;
+}
+
+void insertSort(int *a,int n){
+
+    int i,j,k;
+    for (i = 1; i < n; i++) {
+        for (j = i - 1; j >= 0; j--) {
+            if (a[j] < a[i]) {
+                break;
+            }
+        }
+
+        if (j != i - 1) {
+            int temp = a[i];
+            for (k = i - 1; k > j; k--) {
+                a[k + 1] = a[k];
+            }
+            a[k + 1] = temp;
+        }
+    }
 }
